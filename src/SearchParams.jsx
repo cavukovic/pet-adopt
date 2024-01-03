@@ -1,4 +1,5 @@
-import {useState} from "react";
+import {useState, useEffect } from "react";
+import Pet from "./Pet";
 const ANIMALS = ["bird", "dog", "cat", "rabbit", "reptile"];
 
 const SearchParams = () => {
@@ -6,9 +7,27 @@ const SearchParams = () => {
     const [animal, setAnimal] = useState("");
     const [breed, setBreed] = useState("");
     const breeds = [];
+    const [pets, setPets] = useState([]);
+
+    useEffect(() => {
+        requestPets();
+    }, []); // empty array means that it only runs once when the component starts, putting animal in means it runs 
+    // every time the animal changes, same if we add location etc
+
+    async function requestPets() {
+        const res = await fetch(`https://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`);
+        const json = await res.json();
+        setPets(json.pets);
+    }
+    // use effects mean go retrieve this or do something outside of this component (most of the time api functions), it also
+    // runs every time the component is rendered 
+
     return (
         <div className="search-params">
-            <form>
+            <form onSubmit={e=>{
+                e.preventDefault();
+                requestPets(); 
+            }}>
                 <label htmlFor="location">
                     Location
                     <input onChange={e=> setLocation(e.target.value)} id="location" value={location} placeholder="Enter Your Location" />
@@ -33,6 +52,16 @@ const SearchParams = () => {
                 </label>
                 <button>Submit</button>
             </form> 
+            {
+                pets.map(pet => (
+                    <Pet 
+                        name = {pet.name} 
+                        animal = {pet.animal} 
+                        breed = {pet.breed} 
+                        key={pet.id}
+                    />
+                ))
+            }
         </div>
     )
 }
