@@ -1,13 +1,14 @@
 import {useState, useEffect } from "react";
 import Pet from "./Pet";
+import useBreedList from "./UseBreedList";
 const ANIMALS = ["bird", "dog", "cat", "rabbit", "reptile"];
 
 const SearchParams = () => {
     const [location, setLocation] = useState(""); // "" is default given to hook 
     const [animal, setAnimal] = useState("");
     const [breed, setBreed] = useState("");
-    const breeds = [];
     const [pets, setPets] = useState([]);
+    const [breeds] = useBreedList(animal); // this is a custom hook
 
     useEffect(() => {
         requestPets();
