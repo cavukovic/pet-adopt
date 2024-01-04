@@ -1,22 +1,22 @@
-#Pet Adopt App
+# Pet Adopt App
 This is a React app that allows users to browse adoptable pets and view details about individual pets. This app was created following with the frontend masters course on learning React basic and intermediate skills 
 
-##Features
+## Features
 Browse adoptable pets
 Search for pets by name, breed, and location.
 View details about individual pets like name, age, breed, description, photos, etc.
 Simple and responsive UI
 
-##Tech Stack
+## Tech Stack
 React
 React Router
 React Query
 Vite
 
-##Getting Started
-###Prerequisites
+## Getting Started
+### Prerequisites
 Node.js and npm
-###Installation
+### Installation
 Clone the repo
 git clone https://github.com/cavukovic/pet-adopt.git
 
@@ -28,7 +28,7 @@ npm run dev
 
 
 
-##Usage
+## Usage
 The app allows users to:
 
 Browse all adoptable pets on the home page
