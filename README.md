@@ -1,5 +1,5 @@
 # Pet Adopt App
-This is a React app that allows users to browse adoptable pets and view details about individual pets. This app was created following with the frontend masters course on learning React basic and intermediate skills 
+This is a React app that allows users to browse adoptable pets and view details about individual pets. This app was created following the [frontend masters course]([url](https://react-v8.holt.courses/lessons/welcome/intro)) on learning React basic and intermediate skills 
 
 ## Features
 Browse adoptable pets
